@@ -17,7 +17,6 @@ import javax.swing.JTextField;
 
 
 /**
- *
  * @author izniburak
  */
 
@@ -53,14 +52,14 @@ public class BukiClientSocket {
              */
             public void actionPerformed(ActionEvent e) {
                 out.println(dataField.getText());
-                   String response;
+                String response;
                 try {
                     response = in.readLine();
                     if (response == null || response.equals("")) {
-                          System.exit(0);
-                      }
+                        System.exit(0);
+                    }
                 } catch (IOException ex) {
-                       response = "Error: " + ex;
+                    response = "Error: " + ex;
                 }
                 messageArea.append(response + "\n");
                 dataField.selectAll();
@@ -79,10 +78,10 @@ public class BukiClientSocket {
 
         // Get the server address from a dialog box.
         String serverAddress = JOptionPane.showInputDialog(
-            frame,
-            "Enter IP Address of the Server:",
-            "Welcome to the Socket Server Program",
-            JOptionPane.QUESTION_MESSAGE);
+                frame,
+                "Enter IP Address of the Server:",
+                "Welcome to the Socket Server Program",
+                JOptionPane.QUESTION_MESSAGE);
 
         // Make connection and initialize streams
         Socket socket = new Socket(serverAddress, 9898);
